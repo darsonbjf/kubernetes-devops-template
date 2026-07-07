@@ -11,9 +11,6 @@ spec:
     spec:
       containers:
         - name: app
-          env:
-            - name: APP_ENV
-              value: development
           resources:
             requests:
               cpu: 50m

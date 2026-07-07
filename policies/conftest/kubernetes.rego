@@ -73,6 +73,14 @@ deny contains msg if {
   msg := sprintf("%s/%s container %s must drop all Linux capabilities", [input.kind, input.metadata.name, container.name])
 }
 
+deny contains msg if {
+  container := containers[_]
+  env := container.env[_]
+  env.value
+  env.valueFrom
+  msg := sprintf("%s/%s container %s env %s must not set both value and valueFrom", [input.kind, input.metadata.name, container.name, env.name])
+}
+
 image_has_tag_or_digest(image) if {
   contains(image, "@sha256:")
 }

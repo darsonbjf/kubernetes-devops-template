@@ -46,7 +46,15 @@ fi
 
 if require_or_skip helm "helm is not installed; skipping Helm validation"; then
   helm lint ./charts/app
-  helm template sample-app ./charts/app --namespace sample-app-dev > "${TMP_DIR}/helm.yaml"
+  helm template sample-app ./charts/app --namespace sample-app-dev > "${TMP_DIR}/helm-default.yaml"
+  helm template sample-app ./charts/app \
+    --namespace sample-app-dev \
+    -f charts/app/values-dev.yaml \
+    > "${TMP_DIR}/helm-dev.yaml"
+  helm template sample-app ./charts/app \
+    --namespace sample-app-prod \
+    -f charts/app/values-prod.yaml \
+    > "${TMP_DIR}/helm-prod.yaml"
 fi
 
 if require_or_skip kubeconform "kubeconform is not installed"; then

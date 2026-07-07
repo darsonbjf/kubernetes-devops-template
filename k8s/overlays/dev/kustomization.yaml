@@ -25,6 +25,7 @@ patches:
       - op: add
         path: /metadata/labels/environment
         value: dev
+  - path: patch-configmap.yaml
   - path: patch-deployment.yaml
   - path: patch-ingress.yaml
   - path: patch-hpa.yaml

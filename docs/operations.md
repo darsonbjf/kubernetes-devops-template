@@ -69,4 +69,5 @@ kubectl logs deploy/sample-app -n sample-app-prod
 - Ingress TLS secret exists and certificate renewal is automated.
 - NetworkPolicy allow rules match actual dependencies.
 - Secrets are managed by a dedicated secret workflow, not committed to Git.
+- Applications expose Prometheus-format metrics before enabling the ServiceMonitor example.
 - Dashboards and alerts exist for saturation, restarts, latency, and error rate.

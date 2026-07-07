@@ -14,6 +14,7 @@ This repository shows how to package and operate a small web workload with commo
 - Network isolation: default-deny NetworkPolicy with explicit ingress and egress allow rules.
 - GitOps examples for Argo CD.
 - CI-ready validation with yamllint, kubeconform, helm lint, and Conftest policy checks.
+- Optional examples for External Secrets and Prometheus Operator integrations.
 
 ## Repository Layout
 
@@ -98,6 +99,7 @@ By default, the validation script skips missing optional tools and prints what w
 - Do not commit raw secrets. Use External Secrets, Sealed Secrets, SOPS, or your platform secret manager.
 - Review NetworkPolicy rules for your CNI plugin and application dependencies.
 - Tune requests, limits, HPA thresholds, and PDB values with production metrics.
+- Enable the ServiceMonitor example only after your application exposes Prometheus-format metrics.
 - Update Argo CD `repoURL` values after publishing the repository.
 
 ## Documentation

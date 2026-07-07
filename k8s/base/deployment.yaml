@@ -27,10 +27,6 @@ spec:
         app.kubernetes.io/instance: sample-app
         app.kubernetes.io/component: web
         app.kubernetes.io/version: "1.0.0"
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "8080"
-        prometheus.io/path: /metrics
     spec:
       serviceAccountName: sample-app
       automountServiceAccountToken: false
