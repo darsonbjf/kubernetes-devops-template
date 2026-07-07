@@ -1,0 +1,7 @@
+.tmp/
+.cache/
+.DS_Store
+*.log
+*.tgz
+charts/**/charts/
+charts/**/Chart.lock

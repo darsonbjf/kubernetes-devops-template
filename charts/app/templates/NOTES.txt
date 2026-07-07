@@ -1,0 +1,10 @@
+Release {{ .Release.Name }} deployed to namespace {{ include "app.namespace" . }}.
+
+Check the rollout:
+  kubectl rollout status deployment/{{ include "app.fullname" . }} -n {{ include "app.namespace" . }}
+
+Port-forward locally:
+  kubectl port-forward svc/{{ include "app.fullname" . }} 8080:{{ .Values.service.port }} -n {{ include "app.namespace" . }}
+
+Then open:
+  http://localhost:8080

@@ -1,0 +1,14 @@
+---
+extends: default
+
+ignore: |
+  .tmp/**
+  charts/**/templates/**
+
+rules:
+  document-start: disable
+  line-length:
+    max: 140
+    level: warning
+  truthy:
+    check-keys: false

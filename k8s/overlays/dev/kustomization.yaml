@@ -1,0 +1,31 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: sample-app-dev
+
+resources:
+  - ../../base
+
+images:
+  - name: nginxinc/nginx-unprivileged
+    newTag: 1.27-alpine
+
+replicas:
+  - name: sample-app
+    count: 1
+
+patches:
+  - target:
+      kind: Namespace
+      name: sample-app
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: sample-app-dev
+      - op: add
+        path: /metadata/labels/environment
+        value: dev
+  - path: patch-deployment.yaml
+  - path: patch-ingress.yaml
+  - path: patch-hpa.yaml
+  - path: patch-resourcequota.yaml
